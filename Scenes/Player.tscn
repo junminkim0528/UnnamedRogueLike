@@ -1,0 +1,217 @@
+[gd_scene load_steps=22 format=3 uid="uid://ulvi21p7632r"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_rmi12"]
+[ext_resource type="Texture2D" uid="uid://b663m7q62gvgq" path="res://Sprites/player.png" id="2_bmqm8"]
+[ext_resource type="Texture2D" uid="uid://d02j8lhn6y0q6" path="res://Sprites/Heart.png" id="3_retas"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7vk5"]
+radius = 8.0
+
+[sub_resource type="Gradient" id="Gradient_c6s1l"]
+offsets = PackedFloat32Array(0, 0.279221, 0.733766)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8bdt1"]
+gradient = SubResource("Gradient_c6s1l")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evb8g"]
+atlas = ExtResource("2_bmqm8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1ju7"]
+atlas = ExtResource("2_bmqm8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuulk"]
+atlas = ExtResource("2_bmqm8")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_goj8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evb8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1ju7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuulk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofccs"]
+radius = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqr5n"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ger"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lu0l"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c122n"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewfi3"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al8ad"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bii0v"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n61cb"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cuq0"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_newsv"]
+atlas = ExtResource("3_retas")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+texture_filter = 1
+script = ExtResource("1_rmi12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a7vk5")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+texture = SubResource("GradientTexture2D_8bdt1")
+texture_scale = 3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_goj8i")
+animation = &"walk"
+speed_scale = 2.0
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_ofccs")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 576.0
+offset_bottom = 324.0
+scale = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_right = 0.1
+offset_bottom = 0.1
+
+[node name="Hearts" type="BoxContainer" parent="CanvasLayer/UI"]
+modulate = Color(0.912498, 0, 0.206963, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 196.0
+grow_vertical = 0
+
+[node name="Heart" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_eqr5n")
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_x5ger")
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_0lu0l")
+
+[node name="Heart4" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_c122n")
+
+[node name="Heart5" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_ewfi3")
+
+[node name="Heart6" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_al8ad")
+
+[node name="Heart7" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_bii0v")
+
+[node name="Heart8" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_n61cb")
+
+[node name="Heart9" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_4cuq0")
+
+[node name="Heart10" type="TextureRect" parent="CanvasLayer/UI/Hearts"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_newsv")

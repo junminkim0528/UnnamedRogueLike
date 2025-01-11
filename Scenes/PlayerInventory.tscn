@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://c61c7yflxjlir"]
+
+[ext_resource type="Script" path="res://Scripts/player_inventory.gd" id="1_rnl3w"]
+
+[node name="PlayerInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnl3w")
+
+[node name="Window" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(500, 500)
+unresizable = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="Window/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+max_columns = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Window/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 7.0
+
+[node name="Button" type="Button" parent="Window/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="Window/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxl1ib4s2a3l6"]
+
+[ext_resource type="PackedScene" uid="uid://ulvi21p7632r" path="res://Scenes/Player.tscn" id="1_5o7el"]
+[ext_resource type="PackedScene" uid="uid://b1trsnpfj354x" path="res://Scenes/InteractionObjects/Chest.tscn" id="2_khhrc"]
+
+[node name="PlayerTest" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_5o7el")]
+
+[node name="Chest" parent="." instance=ExtResource("2_khhrc")]
+position = Vector2(103, 81)

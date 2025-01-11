@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceypsl02dicub"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_eqeto"]
+[ext_resource type="PackedScene" uid="uid://ct3g02dlhhyto" path="res://Scenes/DungeonMaker.tscn" id="1_s6rcl"]
+[ext_resource type="TileSet" uid="uid://divbewxf600l6" path="res://Others/main_tileset.tres" id="2_ifb67"]
+[ext_resource type="PackedScene" uid="uid://ulvi21p7632r" path="res://Scenes/Player.tscn" id="4_tp0o3"]
+[ext_resource type="PackedScene" uid="uid://b1trsnpfj354x" path="res://Scenes/InteractionObjects/Chest.tscn" id="5_ediwm"]
+[ext_resource type="PackedScene" uid="uid://ctof3v18cnjlr" path="res://Scenes/Monsters/Goblin.tscn" id="6_l3sm6"]
+[ext_resource type="Script" path="res://Scripts/Monsters/Goblin.gd" id="7_mhjb3"]
+
+[node name="Test" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_eqeto")
+
+[node name="TileMapLayer_Main" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_set = ExtResource("2_ifb67")
+navigation_visibility_mode = 1
+
+[node name="DungeonMaker" parent="." instance=ExtResource("1_s6rcl")]
+road_width = 1
+barrier_size = 3
+map_size = Vector2i(100, 100)
+divide_count = 5
+debug = false
+
+[node name="Player" parent="." instance=ExtResource("4_tp0o3")]
+
+[node name="Chest" parent="." instance=ExtResource("5_ediwm")]
+position = Vector2(39, 56)
+
+[node name="Goblin" parent="." instance=ExtResource("6_l3sm6")]
+script = ExtResource("7_mhjb3")
