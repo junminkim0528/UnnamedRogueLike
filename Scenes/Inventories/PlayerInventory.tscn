@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://5fikbm4h56a1"]
+
+[ext_resource type="Script" path="res://Scripts/Inventories/Inventory.gd" id="1_ajj65"]
+[ext_resource type="PackedScene" uid="uid://bw31k2u0ne6ey" path="res://Scenes/Slot.tscn" id="2_nirqb"]
+[ext_resource type="Texture2D" uid="uid://dckb71ef8gatq" path="res://Sprites/Items.png" id="3_1dxml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mayyo"]
+atlas = ExtResource("3_1dxml")
+region = Rect2(0, 0, 16, 16)
+
+[node name="PlayerInventory" type="Control" node_paths=PackedStringArray("slots_parent")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ajj65")
+slots_parent = NodePath("Slots")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slots" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Slot" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot2" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot3" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot4" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot5" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot6" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot7" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot8" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="Slot9" parent="Slots" instance=ExtResource("2_nirqb")]
+layout_mode = 2
+
+[node name="CursorImage" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_mayyo")

@@ -25,7 +25,7 @@ func Make_TileMap():
 			Link_Line(Vector2i(room.get_center()),Vector2i(room_list[index + 1].get_center()),road_width)
 			
 		index += 1
-	Edit_Wall()
+	Make_Wall()
 	#limit_right
 	GameManager.player.get_node("Camera2D").limit_right = map_size.x * 16
 	GameManager.player.get_node("Camera2D").limit_bottom = map_size.y * 16
@@ -63,7 +63,7 @@ func Make_Rect(rect:Rect2,tile:Vector2i):
 func Find_Spawn():
 	return room_list[0].get_center() * 16
 
-func Edit_Wall():
+func Make_Wall():
 
 	for x in range(origin_room.rect.size.x):
 		for y in range(origin_room.rect.size.y):

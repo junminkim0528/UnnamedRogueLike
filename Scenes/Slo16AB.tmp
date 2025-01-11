@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw31k2u0ne6ey"]
+
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="1_yqmat"]
+[ext_resource type="Texture2D" uid="uid://dckb71ef8gatq" path="res://Sprites/Items.png" id="2_j4toi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrpyy"]
+atlas = ExtResource("2_j4toi")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Slot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_yqmat")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_nrpyy")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

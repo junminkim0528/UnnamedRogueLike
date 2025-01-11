@@ -15,7 +15,6 @@ script = ExtResource("1_eqeto")
 [node name="TileMapLayer_Main" type="TileMapLayer" parent="."]
 texture_filter = 1
 tile_set = ExtResource("2_ifb67")
-navigation_visibility_mode = 1
 
 [node name="DungeonMaker" parent="." instance=ExtResource("1_s6rcl")]
 road_width = 1

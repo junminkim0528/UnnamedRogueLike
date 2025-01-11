@@ -30,6 +30,7 @@ func Divide_Repeat(count:int):
 		last_room.rect.size *= ROOM_DECREASE + randf_range(-0.2,0.2)
 	
 	return result_list[-1]
+	result_list.clear()
 
 func Divide():
 	
